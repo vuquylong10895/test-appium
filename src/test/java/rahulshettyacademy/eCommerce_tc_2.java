@@ -67,7 +67,6 @@ public class eCommerce_tc_2 extends BasesTest {
 			}
 		}
 		Assert.assertTrue(isFound);
-
 		List<WebElement> elesPrice = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
 		for (WebElement ele : elesPrice) {
 			totalAmount += Float.parseFloat(ele.getText().replace("$", ""));
