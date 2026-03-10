@@ -80,5 +80,10 @@ public class eCommerce_tc_2 extends BasesTest {
 		
 		driver.findElement(By.xpath("//android.widget.CheckBox")).click();
 		driver.findElement(By.xpath("//android.widget.Button[@resource-id=\"com.androidsample.generalstore:id/btnProceed\"]")).click();
+		
+		
+		
+		
+		
 	}
 }
