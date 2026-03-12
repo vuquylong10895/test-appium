@@ -19,6 +19,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
+
 public class BasesTest {
 
 	public AppiumDriverLocalService service;
@@ -26,6 +27,7 @@ public class BasesTest {
 
 	@BeforeClass
 	public void ConfigireAppium() throws MalformedURLException, URISyntaxException {
+
 		service = new AppiumServiceBuilder()
 				.withAppiumJS(new File(
 						"/home/thundersoft/.nvm/versions/node/v20.19.6/lib/node_modules/appium/build/lib/main.js"))
@@ -41,6 +43,7 @@ public class BasesTest {
 		 * );
 		 */
 		options.setApp("//home//thundersoft//eclipse-workspace//Appium//src//test//java//resources//General-Store.apk");
+
 
 		driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

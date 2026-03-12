@@ -1,11 +1,12 @@
 package rahulshettyacademy;
 
+import java.awt.RenderingHints.Key;
 import java.time.Duration;
 import java.util.List;
-
-import javax.xml.xpath.XPath;
+import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,6 +14,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class eCommerce_tc_3_Hybrid extends BasesTest {
 	
@@ -81,9 +84,20 @@ public class eCommerce_tc_3_Hybrid extends BasesTest {
 		driver.findElement(By.xpath("//android.widget.CheckBox")).click();
 		driver.findElement(By.xpath("//android.widget.Button[@resource-id=\"com.androidsample.generalstore:id/btnProceed\"]")).click();
 		
+		Thread.sleep(6000L);
 		
+		Set<String> contexrs = driver.getContextHandles();
 		
+		for (String context:contexrs) {
+			System.out.println(context);
+		}
 		
-		
+		driver.context("WEBVIEW_com.androidsample.generalstore");    // Chrome Driver
+		driver.findElement(By.name("q")).sendKeys("facebook");
+		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+		/* driver.pressKey(new KeyEvent(AndroidKey.ENTER)); */
+		Thread.sleep(6000L);
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		driver.context("NATIVE_APP");
 	}
 }
